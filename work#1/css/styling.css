@@ -1,0 +1,62 @@
+
+.title {
+   font-size: 60px;
+   margin: 10px;
+   text-align: center;
+ 
+}
+.image{
+    width: 600px;
+    height: 350px;
+    margin-left: 20px;
+   
+}
+.text{
+    font-size: 25px;
+    margin:15px
+}
+.Name{
+    font-size: 30px;
+    margin-left: 25px;
+}
+.textInput{
+    width:1400px;
+    height:30px;
+    font-size: 15px;
+    margin-left: 20px;
+    margin-top: 5px;
+}
+.container{
+    width:200px;
+    height: 20px;
+
+}
+.div{
+    margin-left: 20px;
+}
+.checkbox{
+   
+    font-size: 20px;
+
+}
+.GymCheckbox{
+    margin-left: 20px;
+}
+.button{
+    width:160px;
+    height:50px;
+    border-radius: 10px;
+    margin-left: 20px;
+    background-color: #008CBA;
+}
+.buttonText{
+    font-size: 30px;
+    color: white
+
+}
+.profile{
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    margin-left: 10px;
+}

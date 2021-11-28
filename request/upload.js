@@ -4,7 +4,7 @@
   
     // sign in UI button
     const signInButton = document.querySelector('.js-signIn');
-  
+   
  
   const signUp = () => {
  

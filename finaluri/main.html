@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./main.css">
+  <link rel="stylesheet" href="./lucky.css">
+  <title>Document</title>
+</head>
+<body>
+  <header id="header">
+    <div class="welcome" id="welcome"></div>
+    <nav id="nav">
+      <ul>
+        <li>
+          <div class="dropdown">
+            <p>
+              <span>Settings</span>
+              <span>
+                <i class="fa fa-caret-down"></i>
+              </span>
+            </p>
+            <div class="dropdown-content">
+              <a href="#" onclick="deactivate()">Deactivate Account</a>
+            </div>
+          </div>
+        </li>
+        <li class="dropBtn" onclick="logOut()">
+          Log Out
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <div class="container" id="box">
+      <h3>Your fortune teller</h3>
+      <div><button id="resultBtn" onclick="showMyLuck()">Show</button></div>
+      <p id="content"></p>
+      <p id="text">Your lucky <strong>number</strong> and <strong>color</strong> for today</p>
+      <p><div id="luckySign"></div></p>
+    </div>
+  </section>
+
+
+  <script>
+    const user = localStorage.user
+    document.getElementById('welcome').innerHTML=`Hello, ${user}`
+
+    const logOut = () => {
+      window.location.replace('./index.html')
+    }
+
+    const deactivate = () => {
+      window.location.replace('./index.html')
+      localStorage.clear()
+    }
+
+
+    // Lucky Content
+
+    window.addEventListener('load', () => {
+      let box = document.getElementById('box');
+
+      for(i=0; i < 8; i++) {
+          let size = (Math.random()*10).toFixed(2);
+          let left = Math.floor((Math.random()*1200));
+          let top = Math.floor((Math.random()*850));
+
+          let stars = document.createElement('div');
+          stars.setAttribute('class','stars');
+          stars.setAttribute('style',`width:${size}px; height:${size}px; left:${left}px; top:${top}px;`);
+          box.appendChild(stars);
+      }
+
+      for(i=0; i < 10; i++) {
+          let size = (Math.random()*10).toFixed(2);
+          let left = Math.floor((Math.random()*1200));
+          let top = Math.floor((Math.random()*850));
+
+          let stars = document.createElement('div');
+          stars.setAttribute('class','stars1');
+          stars.setAttribute('style',`width:${size}px; height:${size}px; left:${left}px; top:${top}px;`);
+          box.appendChild(stars);
+      }
+
+      for(i=0; i < 50; i++) {
+          let size = (Math.random()*7).toFixed(2);
+          let left = Math.floor((Math.random()*1200));
+          let top = Math.floor((Math.random()*850));
+
+          let stars = document.createElement('div');
+          stars.setAttribute('class','stars2');
+          stars.setAttribute('style',`width:${size}px; height:${size}px; left:${left}px; top:${top}px;`);
+          box.appendChild(stars);
+      }
+  });
+
+
+  let fortunesList = null;
+
+  let fortunes = new XMLHttpRequest;
+  let dbURL = "https://my-json-server.typicode.com/taekimlux/fortune_cookies/db";
+  fortunes.open('GET', dbURL);
+  fortunes.send();
+  fortunes.addEventListener("readystatechange", function() {
+      if(this.readyState === 4) {
+          fortunesList = JSON.parse(fortunes.responseText);
+          console.log(fortunesList, 'fortunesList')
+      }
+  });
+
+  const showMyLuck = () => {
+      let luckyContent = document.getElementById('content');
+      let luckyColor = document.getElementById('luckySign');
+
+      let selectContentNr = Math.floor(Math.random()*100);
+      let selectColorNr = Math.floor(Math.random()*50);
+      let selectNumberNr = Math.floor(Math.random()*10);
+
+      if(fortunesList!=null) {
+          luckyContent.innerHTML = fortunesList.content[selectContentNr];
+          luckyColor.innerHTML = fortunesList.number[selectNumberNr];
+          luckyColor.style.background = `radial-gradient(circle, white,${fortunesList.color[selectColorNr]}`;
+      }
+
+      // css animation event
+      luckyContent.setAttribute('class','animated');
+      setTimeout(function(){
+          luckyContent.classList.remove('animated');
+      }, 1000);
+
+  }
+
+  </script>
+</body>
+</html>

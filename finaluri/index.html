@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finaluri</title>
+
+  <head>
+    <link rel="stylesheet" href="./index.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="container" id="js-container">
+        <div class="form-container sign-up-container" tabindex="-1">
+          <form class="form js-createAccountForm" id="signUp">
+              <h1 class="form-title">Create Account</h1>
+              <input class="form-input" type="text" placeholder="Name..." required />
+              <input class="form-input" type="email" placeholder="Email..." required/>
+              <input 
+                class="form-input" 
+                type="password" 
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" 
+                placeholder="Password..."
+                autocomplete="on" 
+                required
+              />
+
+              <button 
+                type="submit" 
+                class="form-button js-signUp" 
+                onclick="signUp()"
+              >
+              Sign Up
+              </button>
+          </form>
+        </div> 
+
+        <div class="form-container sign-in-container" tabindex="-1">
+            <form class="form js-signInForm" id="signIn">
+                <h1 class="form-title">Sign in</h1>
+                <input 
+                  class="form-input signInEmail" 
+                  type="email" 
+                  placeholder="Email..." 
+                  required
+                />
+                <input 
+                  class="form-input signInPass" 
+                  type="password" 
+                  placeholder="Password..." 
+                  autocomplete="on" 
+                  required
+                />
+                <span class="errorMessage">Email or Password is incorrect</span>
+                <button 
+                  type="button" 
+                  class="form-button js-signIn" 
+                  onclick="signIn()"
+                >
+                Sign In
+                </button>
+            </form>
+        </div>
+
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left" tabindex="-1">
+                    <h1 class="form-title">Welcome Back!</h1>
+                    <p class="form-details">
+                      To keep connected with us please login with your personal info
+                    </p>
+                    <button 
+                      type="button" 
+                      class="form-button switch-panel" 
+                      id="js-openSignIn"
+                      >
+                      Open Sign In Form
+                  </button>
+                </div>
+                <div class="overlay-panel overlay-right" tabindex="-1">
+                    <h1 class="form-title">Hello, Friend!</h1>
+                    <p class="form-details">Enter your personal details and start journey with us</p>
+                    <button 
+                      type="button" 
+                      class="form-button switch-panel" 
+                      id="js-openSignUp"
+                      >
+                      Open Sign Up Form
+                    </button>
+                </div>
+            </div>
+        </div> 
+    </div> 
+    <script src="./index.js"></script>
+  </body>
+
+</html>

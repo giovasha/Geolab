@@ -6,19 +6,45 @@
 </head>
 
 <body>
+
  <div id="js-container">
+    <div class="form-container sign-up-container" tabindex="-1">
      <a >aloha </a>
      <form class="form js-createAccountForm" id="signUp"> 
-     <input id='Name'  type="text" placeholder="Name..." required />
-     <input id='Email' type="email" placeholder="Email..." required/>
-     <input id='Password'  type="Password" placeholder=" Password..." required/>
-     <input id='Pet'  type="Pet" placeholder="Pet Name..." required/>
+     <input id='Name'  type="text" placeholder="Name..."  />
+     <input id='Email' type="email" placeholder="Email..." />
+     <input id='Password'  type="Password" placeholder=" Password..." />
+     <input id='Pet'  type="Pet" placeholder="Pet Name..." />
      <Button      
       type="submit" 
       class="form-button js-signUp" 
      onclick="signUp()">sign up</Button>
-     <a style="font-size:50px">Or Sing En</a>
+
+     </form>
+     </div>
  </div>
+ <div id="js-container">
+    <div class="form-container sign-up-container" tabindex="-1">
+     <a >aloha </a>
+     <form class="form js-createAccountForm" id="signUp"> 
+
+     <input id='EmailSignIn' type="email" placeholder="Email..." required/>
+     <input id='PasswordSignIn'  type="Password" placeholder=" Password..." required/>
+
+     <Button      
+      type="submit" 
+      class="form-button js-signUp" 
+     onclick="signIn()">sign In</Button>
+
+    </a>
+     </form>
+
+     </div>
+
+ </div>
+ <a>
+     <button onclick="signOut()">Log Out</button>
+ </a>
  <script src="./upload.js"></script>
 </body>
 </html>

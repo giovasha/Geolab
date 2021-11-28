@@ -54,7 +54,6 @@
   });
 
   const signUp = () => {
-    console.log('ehhh')
     const x = document.getElementById("signUp")
     const storedUser = localStorage.getItem('email')
 
